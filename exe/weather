@@ -10,6 +10,7 @@ abort "Provide a city as argument" unless city
 gateway = Weather::Gateway.new(app_id)
 samples = gateway.forecast(city)
 
+puts "Weather forecast for #{city}"
 puts "DATE\tTEMP(min)\tTEMP(max)\tDESCRIPTION"
 samples.each do |sample|
   puts "#{sample.date}\t#{sample.temp_min}\t#{sample.temp_max}\t#{sample.description}"
