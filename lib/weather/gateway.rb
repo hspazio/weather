@@ -1,7 +1,3 @@
-require 'net/http'
-require 'json'
-require 'weather/version'
-
 module Weather
   Sample = Struct.new(:date, :temp_min, :temp_max, :humidity, :description)
 

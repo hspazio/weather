@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'weather'
+
+app_id = ENV['WEATHER_APP_ID']
+city   = ARGV[0]
+
+abort "WEATHER_APP_ID environment variable is not set" unless app_id
+abort "Provide a city as argument" unless city
+
+gateway = Weather::Gateway.new(app_id)
+samples = gateway.forecast(city)
+
+puts "DATE\tTEMP(min)\tTEMP(max)\tDESCRIPTION"
+samples.each do |sample|
+  puts "#{sample.date}\t#{sample.temp_min}\t#{sample.temp_max}\t#{sample.description}"
+end
+
